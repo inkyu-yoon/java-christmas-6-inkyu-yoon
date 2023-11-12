@@ -1,9 +1,5 @@
 package christmas.view;
 
-import christmas.constants.DateConstants;
-
-import java.time.Month;
-
 import static christmas.constants.DateConstants.DATE_OF_EVENT;
 
 public class OutputView {

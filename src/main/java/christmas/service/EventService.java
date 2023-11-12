@@ -11,8 +11,14 @@ public class EventService {
     public EventService(InputView inputView) {
         this.inputView = inputView;
     }
-    public void createCustomer() {
-        Validator.retryIfFails(() -> new Customer(inputView.readDate()));
 
+    public Customer createCustomer() {
+        return Validator.retryIfFails(() -> new Customer(inputView.readDate()));
     }
+
+    public void createOrderInfo(Customer customer) {
+        Validator.retryIfFails(() -> customer.order(inputView.readOrder()));
+    }
+
+
 }
