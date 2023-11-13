@@ -14,7 +14,6 @@ public class ChristmasEvent implements Event {
 
     @Override
     public int calculateBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
-        System.out.println(isSatisfied(orderInfo, visitDay));
         if (isSatisfied(orderInfo, visitDay)) {
             return calculateChristmasEventBenefit(visitDay);
         }
