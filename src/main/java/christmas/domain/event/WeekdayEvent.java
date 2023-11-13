@@ -7,17 +7,18 @@ import java.time.LocalDate;
 import java.util.EnumMap;
 
 import static christmas.constants.DateConstants.DATE_OF_EVENT;
+import static christmas.constants.EventNameConstants.WEEKDAY_EVENT;
 import static christmas.constants.SystemConstants.MINIMUM_PAYMENT_FOR_EVENT;
-import static java.time.DayOfWeek.*;
+import static java.time.DayOfWeek.SATURDAY;
+import static java.time.DayOfWeek.SUNDAY;
 
 public class WeekdayEvent implements Event {
 
     static final int BENEFIT_AMOUNT_PER_DESSERT = 2023;
-    static final String EVENT_NAME = "평일 할인";
-
+    static final String EVENT_NAME = WEEKDAY_EVENT.getName();
 
     @Override
-    public int calculateTotalBenefit(EnumMap<Menu, Integer> orderInfos, int visitDay) {
+    public int calculateBenefit(EnumMap<Menu, Integer> orderInfos, int visitDay) {
         if (isSatisfied(orderInfos, visitDay)) {
             return calculateWeekdayEventBenefit(orderInfos);
         }

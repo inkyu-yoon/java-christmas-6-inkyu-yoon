@@ -1,18 +1,20 @@
 package christmas.domain.event;
 
+import christmas.constants.EventNameConstants;
 import christmas.domain.Menu;
 
 import java.util.EnumMap;
 
+import static christmas.constants.EventNameConstants.*;
 import static christmas.constants.SystemConstants.*;
 
 public class ChristmasEvent implements Event {
     static final int END_DAY_OF_EVENT = 25;
     static final int DEFAULT_BENEFIT_AMOUNT = 900;
-    static final String EVENT_NAME = "크리스마스 이벤트";
+    static final String EVENT_NAME = CHRISTMAS_EVENT.getName();
 
     @Override
-    public int calculateTotalBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
+    public int calculateBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
         if (isSatisfied(orderInfo, visitDay)) {
             return calculateChristmasEventBenefit(visitDay);
         }

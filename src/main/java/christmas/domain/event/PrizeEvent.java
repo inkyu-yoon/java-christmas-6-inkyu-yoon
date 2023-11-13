@@ -4,15 +4,16 @@ import christmas.domain.Menu;
 
 import java.util.EnumMap;
 
+import static christmas.constants.EventNameConstants.PRIZE_EVENT;
+import static christmas.constants.PrizeEventConstants.*;
 import static christmas.domain.Menu.CHAMPAGNE;
 
 public class PrizeEvent implements Event {
-    static final int MINIMUM_PAYMENT_FOR_PRIZE = 120000;
-    static final String EVENT_NAME = "증정 이벤트";
-
+    static final int MINIMUM_PAYMENT_FOR_PRIZE = PRIZE.getMinimumPayment();
+    static final String EVENT_NAME = PRIZE_EVENT.getName();
 
     @Override
-    public int calculateTotalBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
+    public int calculateBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
         if (isSatisfied(orderInfo, visitDay)) {
             return calculateChristmasEventBenefit();
         }

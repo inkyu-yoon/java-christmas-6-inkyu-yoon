@@ -6,7 +6,7 @@ import java.util.EnumMap;
 
 public interface Event {
 
-    int calculateTotalBenefit(EnumMap<Menu, Integer> orderInfos, int visitDay);
+    int calculateBenefit(EnumMap<Menu, Integer> orderInfos, int visitDay);
 
     boolean isSatisfied(EnumMap<Menu, Integer> orderInfos, int visitDay);
 

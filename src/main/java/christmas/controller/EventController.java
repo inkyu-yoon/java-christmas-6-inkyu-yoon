@@ -19,7 +19,18 @@ public class EventController {
         Customer customer = eventService.createCustomer();
         eventService.createOrderInfo(customer);
         eventService.calculateBenefit(customer);
+        printResults(customer);
 
+    }
+
+    private void printResults(Customer customer) {
+        outputView.printClosingMessage(customer.getVisitDay());
+        outputView.printOrderedMenu(customer.getOrderHistory());
+        outputView.printPaymentBeforeDiscount(customer.getPaymentBeforeDiscount());
+        outputView.printPrizeMenu(customer.getPrizeMenu());
+        outputView.printBenefitHistory(customer.getBenefitHistory());
+        outputView.printTotalBenefitAmount(customer.getTotalBenefitAmount());
+        outputView.printPaymentAfterDiscount(customer.getPaymentAfterDiscount());
     }
 
 }

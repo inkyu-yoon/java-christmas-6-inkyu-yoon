@@ -5,15 +5,16 @@ import christmas.domain.Menu;
 import java.util.EnumMap;
 import java.util.List;
 
+import static christmas.constants.EventNameConstants.SPECIAL_EVENT;
 import static christmas.constants.SystemConstants.MINIMUM_PAYMENT_FOR_EVENT;
 
 public class SpecialEvent implements Event {
     static final List<Integer> SPECIAL_DAYS = List.of(3, 10, 17, 24, 25, 31);
     static final int SPECIAL_BENEFIT_AMOUNT = 1000;
-    static final String EVENT_NAME = "특별 할인";
+    static final String EVENT_NAME = SPECIAL_EVENT.getName();
 
     @Override
-    public int calculateTotalBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
+    public int calculateBenefit(EnumMap<Menu, Integer> orderInfo, int visitDay) {
         if (isSatisfied(orderInfo, visitDay)) {
             return SPECIAL_BENEFIT_AMOUNT;
         }

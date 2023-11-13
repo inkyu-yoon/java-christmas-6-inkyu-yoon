@@ -142,4 +142,8 @@ public enum Menu {
     public Category getCategory() {
         return this.category;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
