@@ -45,7 +45,6 @@ public enum Menu {
         EnumMap<Menu, Integer> orderInfo = createOrderInfo(orderDetails);
         validateNotOnlyDrinks(orderInfo);
         validateOrderLimit(orderInfo);
-
         return orderInfo;
     }
 
@@ -134,5 +133,13 @@ public enum Menu {
         return orderInfo.values().stream()
                 .mapToInt(Integer::valueOf)
                 .sum();
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public Category getCategory() {
+        return this.category;
     }
 }
