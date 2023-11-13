@@ -9,8 +9,7 @@ import java.util.EnumMap;
 import static christmas.constants.DateConstants.DATE_OF_EVENT;
 import static christmas.constants.EventNameConstants.WEEKDAY_EVENT;
 import static christmas.constants.SystemConstants.MINIMUM_PAYMENT_FOR_EVENT;
-import static java.time.DayOfWeek.SATURDAY;
-import static java.time.DayOfWeek.SUNDAY;
+import static java.time.DayOfWeek.*;
 
 public class WeekdayEvent implements Event {
 
@@ -41,7 +40,7 @@ public class WeekdayEvent implements Event {
         LocalDate visitDate
                 = LocalDate.of(DATE_OF_EVENT.getYear(), DATE_OF_EVENT.getMonth(), visitDay);
 
-        return visitDate.getDayOfWeek() != SATURDAY && visitDate.getDayOfWeek() != SUNDAY;
+        return visitDate.getDayOfWeek() != FRIDAY && visitDate.getDayOfWeek() != SATURDAY;
     }
 
     private boolean isMoreThanMinimumPayment(EnumMap<Menu, Integer> orderInfos) {
