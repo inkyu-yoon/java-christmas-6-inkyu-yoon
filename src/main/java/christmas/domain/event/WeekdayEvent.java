@@ -45,7 +45,7 @@ public class WeekdayEvent implements Event {
     }
 
     private boolean isMoreThanMinimumPayment(EnumMap<Menu, Integer> orderInfos) {
-        return getTotalPayment(orderInfos) > MINIMUM_PAYMENT_FOR_EVENT.getValue();
+        return getTotalPayment(orderInfos) >= MINIMUM_PAYMENT_FOR_EVENT.getValue();
     }
 
     private int getTotalPayment(EnumMap<Menu, Integer> orderInfos) {

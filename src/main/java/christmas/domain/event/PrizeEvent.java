@@ -30,7 +30,7 @@ public class PrizeEvent implements Event {
     }
 
     private boolean isMoreThanMinimumPayment(EnumMap<Menu, Integer> orderInfos) {
-        return getTotalPayment(orderInfos) > MINIMUM_PAYMENT_FOR_PRIZE;
+        return getTotalPayment(orderInfos) >= MINIMUM_PAYMENT_FOR_PRIZE;
     }
 
     private int getTotalPayment(EnumMap<Menu, Integer> orderInfos) {
