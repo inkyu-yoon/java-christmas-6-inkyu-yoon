@@ -26,8 +26,5 @@ public class EventService {
         Validator.retryIfFails(() -> customer.createOrder(inputView.readOrder(), events));
     }
 
-    public void calculateBenefit(Customer customer) {
-        Validator.retryIfFails(() -> customer.calculateBenefitByEvents());
-    }
 
 }

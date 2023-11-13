@@ -39,12 +39,12 @@ public enum Menu {
     }
 
 
-    public static EnumMap<Menu, Integer> createMenuInfoFromOrder(String input) {
+    public static EnumMap<Menu, Integer> createOrderedMenuInfoFromOrder(String input) {
         validateFirstDelimiter(input);
         List<String[]> orderDetails = validateSecondDelimiter(input);
         EnumMap<Menu, Integer> orderInfo = createOrderInfo(orderDetails);
         validateNotOnlyDrinks(orderInfo);
-        validateOrderLimit(orderInfo);
+        validateOrderCountLimit(orderInfo);
         return orderInfo;
     }
 
@@ -77,14 +77,14 @@ public enum Menu {
 
     private static EnumMap<Menu, Integer> createOrderInfo(List<String[]> orderDetails) {
 
-        EnumMap<Menu, Integer> enumMap = new EnumMap<>(Menu.class);
+        EnumMap<Menu, Integer> orderInfo = new EnumMap<>(Menu.class);
 
         for (String[] orderDetail : orderDetails) {
             Menu menu = validateMenuName(orderDetail[0]);
             int count = validatePositiveInteger(orderDetail[1]);
-            enumMap.put(menu, count);
+            orderInfo.put(menu, count);
         }
-        return enumMap;
+        return orderInfo;
     }
 
     private static Menu validateMenuName(String input) {
@@ -123,7 +123,7 @@ public enum Menu {
                 .count();
     }
 
-    private static void validateOrderLimit(EnumMap<Menu, Integer> orderInfo) {
+    private static void validateOrderCountLimit(EnumMap<Menu, Integer> orderInfo) {
         if (getTotalCount(orderInfo) > LIMIT_OF_ORDER_COUNT.getValue()) {
             throw new IllegalArgumentException(WRONG_ORDER_MENU.toString());
         }

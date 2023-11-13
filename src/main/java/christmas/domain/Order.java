@@ -21,7 +21,7 @@ public class Order {
     }
 
 
-    public void checkAllEvent(int visitDay) {
+    public void calculateBenefitByEvents(int visitDay) {
         this.benefitInfo = this.events.stream()
                 .collect(Collectors.toMap(
                         Event::getName,

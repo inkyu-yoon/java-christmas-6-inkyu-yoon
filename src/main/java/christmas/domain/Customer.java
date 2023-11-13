@@ -27,11 +27,11 @@ public class Customer {
     }
 
     public void createOrder(String input, List<Event> events) {
-        this.order = new Order(Menu.createMenuInfoFromOrder(input), events);
+        this.order = new Order(Menu.createOrderedMenuInfoFromOrder(input), events);
     }
 
-    public void calculateBenefitByEvents() {
-        this.order.checkAllEvent(this.visitDay);
+    public void calculateBenefit() {
+        this.order.calculateBenefitByEvents(this.visitDay);
     }
 
     public int getVisitDay() {

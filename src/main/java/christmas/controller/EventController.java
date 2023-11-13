@@ -18,7 +18,7 @@ public class EventController {
         outputView.printInitialMessage();
         Customer customer = eventService.createCustomer();
         eventService.createOrderInfo(customer);
-        eventService.calculateBenefit(customer);
+        customer.calculateBenefit();
         customer.receiveBadge();
         printResults(customer);
     }
