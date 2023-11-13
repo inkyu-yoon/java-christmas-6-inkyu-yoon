@@ -12,6 +12,7 @@ import static christmas.constants.ErrorMessage.WRONG_VISIT_DATE;
 public class Customer {
     private final int visitDay;
     private Order order;
+    private Badge badge;
 
     public Customer(int visitDay) {
         validateDayInMonth(visitDay);
@@ -60,4 +61,13 @@ public class Customer {
     public int getPaymentAfterDiscount() {
         return order.calculatePaymentAfterDiscount();
     }
+
+    public void receiveBadge() {
+        this.badge = order.selectBadgeByBenefit();
+    }
+
+    public String getBadgeName() {
+        return this.badge.name;
+    }
+
 }

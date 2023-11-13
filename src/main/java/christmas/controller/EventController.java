@@ -19,8 +19,8 @@ public class EventController {
         Customer customer = eventService.createCustomer();
         eventService.createOrderInfo(customer);
         eventService.calculateBenefit(customer);
+        customer.receiveBadge();
         printResults(customer);
-
     }
 
     private void printResults(Customer customer) {
@@ -31,6 +31,7 @@ public class EventController {
         outputView.printBenefitHistory(customer.getBenefitHistory());
         outputView.printTotalBenefitAmount(customer.getTotalBenefitAmount());
         outputView.printPaymentAfterDiscount(customer.getPaymentAfterDiscount());
+        outputView.printEventBadge(customer.getBadgeName());
     }
 
 }

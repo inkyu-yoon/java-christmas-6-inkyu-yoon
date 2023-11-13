@@ -38,6 +38,16 @@ public class OutputView {
 
     public void printBenefitHistory(Map<String, Integer> benefitHistory) {
         System.out.println("\n<혜택 내역>");
+
+        if (isBenefitApplied(benefitHistory)) {
+            printBenefitDetailsPerEvent(benefitHistory);
+            return;
+        }
+
+        System.out.println("없음");
+    }
+
+    private void printBenefitDetailsPerEvent(Map<String, Integer> benefitHistory) {
         benefitHistory.entrySet().stream()
                 .forEach(benefit ->
                         System.out.println(
@@ -49,9 +59,25 @@ public class OutputView {
                 );
     }
 
+    private static boolean isBenefitApplied(Map<String, Integer> benefitHistory) {
+        return getTotalBenefitAmount(benefitHistory) != 0;
+    }
+
+    private static int getTotalBenefitAmount(Map<String, Integer> benefitHistory) {
+        return benefitHistory.values().stream()
+                .mapToInt(Integer::valueOf)
+                .sum();
+    }
+
     public void printTotalBenefitAmount(int totalBenefitAmount) {
         System.out.println("\n<총혜택 금액>");
-        System.out.println(String.format("-%s원", formatNumber(totalBenefitAmount)));
+
+        if (totalBenefitAmount > 0) {
+            System.out.println(String.format("-%s원", formatNumber(totalBenefitAmount)));
+            return;
+        }
+
+        System.out.println(String.format("%s원", formatNumber(totalBenefitAmount)));
     }
 
     public void printPaymentAfterDiscount(int paymentAfterDiscount) {
@@ -65,4 +91,8 @@ public class OutputView {
     }
 
 
+    public void printEventBadge(String badgeName) {
+        System.out.println("\n<12월 이벤트 배지>");
+        System.out.println(badgeName);
+    }
 }

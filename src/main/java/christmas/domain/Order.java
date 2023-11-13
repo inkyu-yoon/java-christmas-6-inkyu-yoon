@@ -2,10 +2,7 @@ package christmas.domain;
 
 import christmas.domain.event.Event;
 
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static christmas.constants.EventNameConstants.PRIZE_EVENT;
@@ -81,5 +78,9 @@ public class Order {
 
     private boolean isPrizeBenefit(Map.Entry<String, Integer> benefit) {
         return benefit.getKey().equals(PRIZE_EVENT.getName());
+    }
+
+    public Badge selectBadgeByBenefit() {
+        return Badge.from(calculateTotalBenefitAmount());
     }
 }
