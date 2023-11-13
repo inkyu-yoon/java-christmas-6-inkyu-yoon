@@ -1,7 +1,6 @@
 package christmas.domain;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 public enum Badge {
     SANTA(20000, "산타"),
@@ -16,7 +15,6 @@ public enum Badge {
         this.minimumPayment = minimumPayment;
         this.name = name;
     }
-
 
     public static Badge from(int benefitAmount) {
         return Arrays.stream(Badge.values())

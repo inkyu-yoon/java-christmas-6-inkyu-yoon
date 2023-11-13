@@ -13,13 +13,11 @@ public class Order {
     private List<Event> events;
     private Map<String, Integer> benefitInfo;
 
-
     public Order(EnumMap<Menu, Integer> orderInfo, List<Event> events) {
         this.orderInfo = orderInfo;
         this.events = events;
         this.benefitInfo = new HashMap<>();
     }
-
 
     public void calculateBenefitByEvents(int visitDay) {
         this.benefitInfo = this.events.stream()

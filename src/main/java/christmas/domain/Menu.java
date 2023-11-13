@@ -38,7 +38,6 @@ public enum Menu {
         this.category = category;
     }
 
-
     public static EnumMap<Menu, Integer> createOrderedMenuInfoFromOrder(String input) {
         validateFirstDelimiter(input);
         List<String[]> orderDetails = validateSecondDelimiter(input);
@@ -47,7 +46,6 @@ public enum Menu {
         validateOrderCountLimit(orderInfo);
         return orderInfo;
     }
-
 
     private static void validateFirstDelimiter(String input) {
         validateDelimiter(input, FIRST_DELIMITER.getDelimiter());
