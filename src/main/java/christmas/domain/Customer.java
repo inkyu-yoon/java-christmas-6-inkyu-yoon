@@ -67,7 +67,7 @@ public class Customer {
     }
 
     public String getBadgeName() {
-        return this.badge.name;
+        return this.badge.getName();
     }
 
 }

@@ -8,8 +8,8 @@ public enum Badge {
     STAR(5000, "별"),
     NONE(0, "없음");
 
-    int minimumPayment;
-    String name;
+    private int minimumPayment;
+    private String name;
 
     Badge(int minimumPayment, String name) {
         this.minimumPayment = minimumPayment;
@@ -21,5 +21,9 @@ public enum Badge {
                 .filter(badge -> badge.minimumPayment <= benefitAmount)
                 .findFirst()
                 .orElse(NONE);
+    }
+
+    public String getName() {
+        return name;
     }
 }

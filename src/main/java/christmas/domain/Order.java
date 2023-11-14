@@ -29,7 +29,7 @@ public class Order {
 
     public List<String> createOrderHistory() {
         return orderInfo.keySet().stream()
-                .map(menu -> String.format("%s %d개", menu.name, orderInfo.get(menu)))
+                .map(menu -> String.format("%s %d개", menu.getName(), orderInfo.get(menu)))
                 .collect(Collectors.toList());
     }
 

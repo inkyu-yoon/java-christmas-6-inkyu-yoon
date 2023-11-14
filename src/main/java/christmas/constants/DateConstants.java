@@ -6,8 +6,8 @@ import java.time.YearMonth;
 public enum DateConstants {
     DATE_OF_EVENT(2023, Month.DECEMBER);
 
-    int year;
-    Month month;
+    private int year;
+    private Month month;
 
     DateConstants(int year, Month month) {
         this.year = year;

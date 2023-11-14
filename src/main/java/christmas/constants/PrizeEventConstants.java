@@ -5,9 +5,9 @@ import christmas.domain.Menu;
 public enum PrizeEventConstants {
     PRIZE(120000, Menu.CHAMPAGNE, 1);
 
-    int minimumPayment;
-    Menu prize;
-    int countOfPrize;
+    private int minimumPayment;
+    private Menu prize;
+    private int countOfPrize;
 
     PrizeEventConstants(int minimumPayment, Menu prize, int countOfPrize) {
         this.minimumPayment = minimumPayment;
@@ -28,5 +28,9 @@ public enum PrizeEventConstants {
 
     public Menu getPrize() {
         return prize;
+    }
+
+    public int getCountOfPrize() {
+        return countOfPrize;
     }
 }

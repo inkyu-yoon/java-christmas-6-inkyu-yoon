@@ -6,7 +6,6 @@ import static christmas.constants.ErrorMessage.WRONG_VISIT_DATE;
 
 public class Validator {
 
-
     public static int validateInteger(String input) {
         try {
             return Integer.parseInt(input);

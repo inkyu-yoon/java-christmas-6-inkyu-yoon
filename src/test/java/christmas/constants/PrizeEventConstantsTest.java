@@ -12,13 +12,13 @@ class PrizeEventConstantsTest {
     @Test
     void successGetPrizeInfo() {
         PrizeEventConstants prizeEventConstants = PrizeEventConstants.PRIZE;
-        int minimumPayment = prizeEventConstants.minimumPayment;
+        int minimumPayment = prizeEventConstants.getMinimumPayment();
 
         assertThat(prizeEventConstants.createPrizeInfo(minimumPayment))
                 .isEqualTo(
                         String.format("%s %d개",
-                                prizeEventConstants.prize.getName(),
-                                prizeEventConstants.countOfPrize)
+                                prizeEventConstants.getPrize().getName(),
+                                prizeEventConstants.getCountOfPrize())
                 );
     }
 
@@ -26,7 +26,7 @@ class PrizeEventConstantsTest {
     @Test
     void failGetPrizeInfo() {
         PrizeEventConstants prizeEventConstants = PrizeEventConstants.PRIZE;
-        int minimumPayment = prizeEventConstants.minimumPayment - 1;
+        int minimumPayment = prizeEventConstants.getMinimumPayment() - 1;
 
         assertThat(prizeEventConstants.createPrizeInfo(minimumPayment))
                 .isEqualTo("없음");
