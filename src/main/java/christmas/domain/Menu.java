@@ -48,7 +48,7 @@ public enum Menu {
     }
 
     private static void validateFirstDelimiter(String input) {
-        validateDelimiter(input, FIRST_DELIMITER.getDelimiter());
+        validateFirstDelimiter(input, FIRST_DELIMITER.getDelimiter());
     }
 
     private static List<String[]> validateSecondDelimiter(String input) {
@@ -56,7 +56,7 @@ public enum Menu {
                 .collect(Collectors.toList());
 
         for (String order : orders) {
-            validateDelimiter(order, SECOND_DELIMITER.getDelimiter());
+            validateSecondDelimiter(order, SECOND_DELIMITER.getDelimiter());
         }
 
         return orders.stream()
@@ -64,13 +64,26 @@ public enum Menu {
                 .collect(Collectors.toList());
     }
 
-    private static void validateDelimiter(String input, String delimiter) {
-        Arrays.stream(input.split(delimiter))
-                .filter(order -> order.isEmpty())
+    private static void validateFirstDelimiter(String input, String delimiter) {
+        Arrays.stream(input.split(delimiter, -1))
+                .filter(order -> order.isBlank())
                 .findAny()
                 .ifPresent(order -> {
                     throw new IllegalArgumentException(WRONG_ORDER_MENU.toString());
                 });
+    }
+
+    private static void validateSecondDelimiter(String input, String delimiter) {
+        Arrays.stream(input.split(delimiter, -1))
+                .filter(order -> order.isBlank())
+                .findAny()
+                .ifPresent(order -> {
+                    throw new IllegalArgumentException(WRONG_ORDER_MENU.toString());
+                });
+
+        if (input.split(delimiter, -1).length > 2) {
+            throw new IllegalArgumentException(WRONG_ORDER_MENU.toString());
+        }
     }
 
     private static EnumMap<Menu, Integer> createOrderInfo(List<String[]> orderDetails) {
