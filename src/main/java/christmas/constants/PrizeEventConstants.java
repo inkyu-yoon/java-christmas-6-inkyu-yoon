@@ -25,4 +25,8 @@ public enum PrizeEventConstants {
         }
         return "없음";
     }
+
+    public Menu getPrize() {
+        return prize;
+    }
 }
