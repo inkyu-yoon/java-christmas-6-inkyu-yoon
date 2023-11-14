@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EventNameConstantsTest {
 
-    String nameOfChristmasEvent = "크리스마스 디데이 할인";
-    String nameOfPrizeEvent = "증정 이벤트";
-    String nameOfSpecialEvent = "특별 할인";
-    String nameOfWeekdayEvent = "평일 할인";
-    String nameOfWeekendEvent = "주말 할인";
+    static String nameOfChristmasEvent = "크리스마스 디데이 할인";
+    static String nameOfPrizeEvent = "증정 이벤트";
+    static String nameOfSpecialEvent = "특별 할인";
+    static String nameOfWeekdayEvent = "평일 할인";
+    static String nameOfWeekendEvent = "주말 할인";
 
-    private Stream<Arguments> successGetEventNameScenarios() {
+    private static Stream<Arguments> successGetEventNameScenarios() {
         return Stream.of(
                 Arguments.of(CHRISTMAS_EVENT, nameOfChristmasEvent),
                 Arguments.of(PRIZE_EVENT, nameOfPrizeEvent),
