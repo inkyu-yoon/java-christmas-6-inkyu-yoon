@@ -92,7 +92,7 @@ public class OutputView {
 
 
     public void printEventBadge(String badgeName) {
-        System.out.println("\n<12월 이벤트 배지>");
+        System.out.println(String.format("\n<%d월 이벤트 배지>", DATE_OF_EVENT.getMonth()));
         System.out.println(badgeName);
     }
 }
